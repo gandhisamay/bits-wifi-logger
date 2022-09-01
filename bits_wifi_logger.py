@@ -1,7 +1,8 @@
-import os.path
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from dotenv import load_dotenv
 
 driver = webdriver.Chrome(service=Service('/home/samaygandhi/Documents/chromedriver'))
 options = webdriver.ChromeOptions()
@@ -11,14 +12,14 @@ driver = webdriver.Chrome(options=options)
 
 driver.get("https://fw.bits-pilani.ac.in:8090")
 
+
 exists = os.path.isfile("./.env")
 if exists:
     # Extract the details
-    f = open("./.env", "r")
-    credentials = f.readlines()
-    usnm = credentials[0]
-    pswd = credentials[1]
-else:
+    load_dotenv()
+    usnm = os.environ.get('USERNAME')
+    pswd = os.environ.get('PASSWORD') 
+else: 
     raise Exception('Credentials not found')
 
 username = driver.find_element(By.NAME,'username')
