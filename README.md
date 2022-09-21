@@ -1,10 +1,4 @@
 # bits-wifi-logger
-Automatically connect to bits wifi without taking the hassle of entering your bits id and password everytime
-
-## Features
-1) Automatically authenticates your bits wifi on startup
-2) Credentials hidden in local device itself
-
-## To dos
-1) Check the current wifi status and connect to bits wifi first if not created
-2) Make the process more user friendly
+Automatically connect to bits wifi without taking the hassle of entering your bits id and password everytime.
+## How to automate?
+I automate it by simply adding the file to the i3 window manager on startup auto run config. However feel free to use it as a keybind as well or find other solutions to automate this process based on your os and distro.
