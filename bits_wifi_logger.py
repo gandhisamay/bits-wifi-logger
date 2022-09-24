@@ -13,7 +13,7 @@ driver = webdriver.Chrome(options=options)
 driver.get("https://fw.bits-pilani.ac.in:8090")
 
 
-exists = os.path.isfile("./.env")
+exists = os.path.isfile("/home/samaygandhi/Documents/.env")
 if exists:
     # Extract the details
     load_dotenv()
@@ -22,13 +22,12 @@ if exists:
 else: 
     raise Exception('Credentials not found')
 
-username = driver.find_element(By.NAME,'username')
-password = driver.find_element(By.NAME,'password')
-
+username = driver.find_element(By.ID,'username')
+password = driver.find_element(By.ID,'password')
 username.send_keys(usnm)
 password.send_keys(pswd)
 
-driver.find_element(By.CLASS_NAME, 'buttonrow').click()
+driver.find_element(By.ID, 'loginbtn').click()
 
 driver.implicitly_wait(time_to_wait=1)
 
